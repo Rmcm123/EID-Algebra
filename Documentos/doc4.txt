@@ -1,0 +1,1 @@
+Los vectores y las matrices son herramientas fundamentales del algebra lineal moderna.
