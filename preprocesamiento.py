@@ -1,4 +1,22 @@
 import os
+
+STOPWORDS_ES = {
+    "el", "la", "los", "las", "un", "una", "unos", "unas",
+    "de", "del", "al", "a", "en", "con", "por", "para",
+    "y", "o", "e", "u", "ni", "que", "es", "son", "se",
+    "su", "sus", "lo", "le", "les", "me", "te", "nos",
+    "mi", "tu", "yo", "él", "ella", "ello", "nosotros",
+    "ellos", "ellas", "este", "esta", "estos", "estas",
+    "ese", "esa", "esos", "esas", "aquel", "aquella",
+    "como", "pero", "más", "mas", "si", "no", "ya",
+    "muy", "tan", "entre", "sobre", "sin", "hasta",
+    "desde", "donde", "cuando", "también", "fue", "ha",
+    "hay", "ser", "estar", "tiene", "tienen", "puede",
+    "era", "sido", "otro", "otra", "otros", "otras",
+    "todo", "toda", "todos", "todas", "cada", "mismo",
+    "misma", "porque", "aunque", "hacia", "después",
+    "antes", "durante", "según", "contra", "mediante",
+}
 def limpiador(texto: str) -> list[str]:
     if not texto:
         return []
@@ -12,7 +30,8 @@ def limpiador(texto: str) -> list[str]:
             texto_sin_signo += caracter
 
     token = texto_sin_signo.split()
-    return token
+    token_filtrado = [t for t in token if t not in STOPWORDS_ES]
+    return token_filtrado
 
 
 def generar_vocabulario(documentos: dict[str, str]) -> list[str]:
