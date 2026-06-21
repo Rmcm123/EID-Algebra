@@ -30,7 +30,7 @@ def ordenar_resultados(resultados, cantidad=3, umbral=0.0) -> list[tuple[str, fl
 
     resultados_filtrados = [
         resultado for resultado in resultados 
-        if resultado[1] > umbral # Filtra los resultados que tienen una similitud mayor que el umbral
+        if resultado[1] >= umbral # Filtra los resultados que tienen una similitud mayor que el umbral
         ]
     
     resultados_ordenados = sorted(
